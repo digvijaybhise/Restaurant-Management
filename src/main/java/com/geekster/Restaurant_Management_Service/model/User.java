@@ -1,9 +1,6 @@
 package com.geekster.Restaurant_Management_Service.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -21,19 +18,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
 
-    @NotNull
+    @Column(nullable = false)
     private String userFirstName;
 
-    @NotNull
+    @Column(nullable = false)
     private String userLastName;
 
-    @NotNull
+    @Column(nullable = false)
     private String userPhoneNumber;
 
+    @Column(nullable = false)
     @Email
     private String userEmail;
 
-    @NotNull
+    @Column(nullable = false)
     private String userPassword;
 
     public User(String userFirstName, String userLastName, String userPhoneNumber, String userEmail, String userPassword) {

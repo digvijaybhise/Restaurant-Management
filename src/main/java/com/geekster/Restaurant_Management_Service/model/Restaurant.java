@@ -13,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "foodId")// used for bidirectional mapping
 public class Restaurant {
 
     @Id

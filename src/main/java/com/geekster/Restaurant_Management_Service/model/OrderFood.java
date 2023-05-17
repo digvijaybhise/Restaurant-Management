@@ -26,9 +26,7 @@ public class OrderFood {
     @ManyToOne
     private User user;
 
-    @NotEmpty
     private Integer orderQuantity;
-
     @NotNull
     private String userAddress;
 

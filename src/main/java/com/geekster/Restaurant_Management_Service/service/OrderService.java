@@ -1,13 +1,11 @@
 package com.geekster.Restaurant_Management_Service.service;
 
-import com.geekster.Restaurant_Management_Service.model.Food;
-import com.geekster.Restaurant_Management_Service.model.OrderFood;
-import com.geekster.Restaurant_Management_Service.model.Restaurant;
-import com.geekster.Restaurant_Management_Service.model.User;
+import com.geekster.Restaurant_Management_Service.model.*;
 import com.geekster.Restaurant_Management_Service.repository.IFoodRepository;
 import com.geekster.Restaurant_Management_Service.repository.IOrderRepository;
 import com.geekster.Restaurant_Management_Service.repository.IRestaurantRepository;
 import com.geekster.Restaurant_Management_Service.repository.IUserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +34,12 @@ public class OrderService {
         orderFood.setFood(food);
 
         orderRepository.save(orderFood);
-        return "Your order is placed";
+        return "Your order is placed!!";
+    }
+
+    @Transactional
+    public String updateStatus(Integer orderId, OrderStatus orderStatus) {
+        orderRepository.updateOrderStatusByOrderId(orderStatus, orderId);
+        return "You're order is Updated !!!";
     }
 }

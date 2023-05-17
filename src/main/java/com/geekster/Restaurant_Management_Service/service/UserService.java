@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -87,5 +88,9 @@ public class UserService {
     public String updateUser(User user) {
         userRepository.save(user);
         return "User updated Successfully!!!";
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }
