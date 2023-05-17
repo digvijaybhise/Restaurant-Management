@@ -39,7 +39,8 @@ public class OrderService {
 
     @Transactional
     public String updateStatus(Integer orderId, OrderStatus orderStatus) {
-        orderRepository.updateOrderStatusByOrderId(orderStatus, orderId);
+        OrderFood order = orderRepository.findById(orderId).get();
+        order.setStatus(orderStatus);
         return "You're order is Updated !!!";
     }
 }
